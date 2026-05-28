@@ -30,12 +30,12 @@ BASE_FEATURES = [
 ]
 TARGET = "price"
 N_ESTIMATORS = 300
-MIN_LOT_SIZE = 1
+MIN_DIVISOR = 1
 
 
 def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     transformed = df.copy()
-    transformed["living_lot_ratio"] = transformed["sqft_living"] / transformed["sqft_lot"].clip(lower=MIN_LOT_SIZE)
+    transformed["living_lot_ratio"] = transformed["sqft_living"] / transformed["sqft_lot"].clip(lower=MIN_DIVISOR)
     transformed["nearby_living_gap"] = transformed["sqft_living"] - transformed["sqft_living15"]
     return transformed
 
