@@ -29,8 +29,8 @@ BASE_FEATURES = [
     "sqft_lot15",
 ]
 TARGET = "price"
-N_ESTIMATORS = 300  # fixed baseline value for stable ensemble performance
-MIN_LOT_SIZE_SQFT = 1
+N_ESTIMATORS = 300  # practical default balancing accuracy and training speed
+MIN_LOT_SIZE_SQFT = 300
 
 
 def engineer_features(df: pd.DataFrame) -> pd.DataFrame:

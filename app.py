@@ -27,7 +27,7 @@ st.sidebar.metric("MSE", f"{metrics['mse']:.2f}")
 
 col1, col2 = st.columns(2)
 with col1:
-    bedrooms = st.number_input("Bedrooms", min_value=0, max_value=10, value=3)
+    bedrooms = st.number_input("Bedrooms", min_value=1, max_value=10, value=3)
     bathrooms = st.number_input("Bathrooms", min_value=0.0, max_value=10.0, value=2.0, step=0.5)
     sqft_living = st.number_input("Sqft Living", min_value=200, max_value=20000, value=1800)
     sqft_lot = st.number_input("Lot Size (sqft)", min_value=300, max_value=100000, value=5000)
