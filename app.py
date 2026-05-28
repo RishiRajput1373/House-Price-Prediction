@@ -10,8 +10,12 @@ st.write("Enter house details to estimate the property price.")
 
 if not MODEL_PATH.exists() or not SCALER_PATH.exists() or not METRICS_PATH.exists():
     st.info("Training model for first-time setup. Please wait...")
-    with st.spinner("Training model..."):
-        train_and_save()
+    try:
+        with st.spinner("Training model..."):
+            train_and_save()
+    except Exception as exc:
+        st.error(f"Model training failed: {exc}")
+        st.stop()
 
 model = joblib.load(MODEL_PATH)
 scaler = joblib.load(SCALER_PATH)
