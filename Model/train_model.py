@@ -29,6 +29,7 @@ BASE_FEATURES = [
     "sqft_lot15",
 ]
 TARGET = "price"
+N_ESTIMATORS = 300
 
 
 def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
@@ -51,7 +52,7 @@ def train_and_save(data_path: Path = DATA_PATH) -> dict:
     x_train_scaled = scaler.fit_transform(x_train)
     x_test_scaled = scaler.transform(x_test)
 
-    model = RandomForestRegressor(n_estimators=300, random_state=42)
+    model = RandomForestRegressor(n_estimators=N_ESTIMATORS, random_state=42)
     model.fit(x_train_scaled, y_train)
 
     predictions = model.predict(x_test_scaled)
