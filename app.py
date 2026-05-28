@@ -34,7 +34,7 @@ with col2:
     condition = st.number_input("Condition", min_value=1, max_value=5, value=3)
     zipcode = st.number_input("Zipcode", min_value=10000, max_value=99999, value=98001)
     lat = st.number_input("Latitude", min_value=-90.0, max_value=90.0, value=47.5, format="%.6f")
-    long_value = st.number_input("Longitude", min_value=-180.0, max_value=180.0, value=-122.2, format="%.6f")
+    longitude = st.number_input("Longitude", min_value=-180.0, max_value=180.0, value=-122.2, format="%.6f")
     sqft_living15 = st.number_input("Nearby Sqft Living", min_value=200, max_value=20000, value=1700)
     sqft_lot15 = st.number_input("Nearby Lot Size (sqft)", min_value=300, max_value=100000, value=4500)
 
@@ -50,7 +50,7 @@ if st.button("Predict Price"):
             "condition": condition,
             "zipcode": zipcode,
             "lat": lat,
-            "long": long_value,
+            "long": longitude,
             "sqft_living15": sqft_living15,
             "sqft_lot15": sqft_lot15,
         }
